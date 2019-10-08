@@ -24,18 +24,19 @@ const catalogue = [
 
 function checkBook(title) {
   if (!title) throw new Error("Please provide a title");
-  // Your code here loop through array/cat one by one, 
+  //loop through catalogue to find title 
   for (let i = 0; i < catalogue.length; i++) {
     const book = catalogue[i];
-    if (book.title.includes(title)) {
-      result = true;
-    }
+    if (book.title.includes(title) || partial)) { //can't work out how to include partial results
+      return true;
+    } else {
+      return false;
 
-    return result;
+    
+    //return true if title or partial is found, false is not found
 
   }
-  checkBook("Great Expectations")
-
+  }
 
 }
 
@@ -49,7 +50,7 @@ function countBooksByKeyword(keyword) {
 
   }
   if (book.includes(keyword)) {
-    return //number of instances;
+    return result; //number of instances;
   }
 }
 
@@ -82,37 +83,37 @@ function stockReview(title) {
   var stockCount;
   var text = "Not in our catalogue";
 
-    let i = 0;
-    while (i < catalogue.length) {
-     const book = catalogue[i].title;
-     let bookLS = book.toLowerCase();
-     let titleLS = title.toLowerCase();
-     if (bookLS === (titleLS)) {
-       stockCount = catalogue[i].quantity;
+  let i = 0;
+  while (i < catalogue.length) {
+    const book = catalogue[i].title;
+    let bookLS = book.toLowerCase();
+    let titleLS = title.toLowerCase();
+    if (bookLS === (titleLS)) {
+      stockCount = catalogue[i].quantity;
 
-        switch(stockCount)  {
-          case 0:
-            text = "Not in Stock";
-            break;
-          case 1:
-          case 2:
-          case 3:
-          case 4:
-          case 5:
-            text = "Low Stock";
-            break;
-          case 6:
-          case 7:
-          case 8:
-          case 9:
-          case 10:
-            text = "Medium Stock";
-            break;
-          default:
-            text = "High Stock";
-          }
+      switch (stockCount) {
+        case 0:
+          text = "Not in Stock";
+          break;
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+          text = "Low Stock";
+          break;
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+        case 10:
+          text = "Medium Stock";
+          break;
+        default:
+          text = "High Stock";
       }
-   i++;
+    }
+    i++;
   }
   return text;
 

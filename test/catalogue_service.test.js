@@ -4,7 +4,7 @@ describe("catalogueService", () => {
 
 
 
-  describe("catalogueService.checkBook", () => {
+  describe.only("catalogueService.checkBook", () => {
     test("returns true when a book is found by title", () => {
       expect(catalogueService.checkBook("Great Expectations")).toBe(true);
     });
@@ -14,7 +14,7 @@ describe("catalogueService", () => {
     });
 
     test("returns true when a partial match is found", () => {
-      expect(catalogueService.checkBook("Expectations")).toBe(true);
+      expect(catalogueService.checkBook("Expectations")).toEqual(true);
     });
 
     test("returns false when not even a partial match is found", () => {
@@ -29,9 +29,9 @@ describe("catalogueService", () => {
       expect(catalogueService.countBooksByKeyword("Great Expectations")).toBe(true);
     });
 
-    test("returns false when a book cannot be found by keyword", () => ) {
+    test("returns false when a book cannot be found by keyword", () =>  {
       expect(catalogueService.countBooksByKeyword("Gone With The Wind")).toBe(false);
-    };
+    });
 
     test("returns true when a partial match is found", () => {
       expect(catalogueService.countBooksByKeyword("Expectations")).toBe(true);
